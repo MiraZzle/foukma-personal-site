@@ -3,5 +3,6 @@
 	"title": "Why Start a Blog?",
 	"date": "2026-02-01",
 	"summary": "Thoughts on why writing publicly is one of the best things a developer can do.",
-	"tags": ["writing", "personal"]
+	"tags": ["writing", "personal"],
+	"readingTime": "1 min read"
 }

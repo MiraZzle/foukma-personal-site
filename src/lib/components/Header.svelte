@@ -16,9 +16,9 @@
 
 <header class="bg-background/80 sticky top-0 z-50 w-full backdrop-blur">
 	<div class="mx-auto flex h-16 max-w-4xl items-center justify-between px-6">
-		<a href="/" class="text-foreground flex items-center gap-2 text-lg tracking-tight">
+		<a href="/" class="text-foreground flex items-center gap-2 text-base tracking-tight">
 			<Cuboid class="h-5 w-5" />
-			Matěj Foukal
+			foukalma.
 		</a>
 
 		<nav class="hidden items-center gap-6 md:flex">

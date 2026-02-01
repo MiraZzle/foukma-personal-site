@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { searchPosts, allTags } from '$lib/posts';
 	import { blogSearch } from '$lib/stores/blog-search.svelte';
+	import BlogPostPreview from '$lib/components/BlogPostPreview.svelte';
 
 	let selectedTags = $state<string[]>([]);
 
@@ -35,22 +36,7 @@
 
 	<div class="mt-6 flex flex-col divide-y divide-border">
 		{#each filtered as post}
-			<a
-				href="/blog/{post.slug}"
-				class="group flex items-center gap-4 py-3 transition-colors"
-			>
-				<time class="text-muted-foreground w-24 flex-shrink-0 text-xs tabular-nums">{post.date}</time>
-				<h2 class="text-foreground group-hover:text-primary min-w-0 flex-1 truncate text-sm font-medium transition-colors">
-					{post.title}
-				</h2>
-				{#if post.tags.length > 0}
-					<div class="hidden flex-shrink-0 gap-1.5 sm:flex">
-						{#each post.tags as tag}
-							<span class="bg-secondary text-secondary-foreground rounded-full px-2 py-0.5 text-xs">{tag}</span>
-						{/each}
-					</div>
-				{/if}
-			</a>
+			<BlogPostPreview {post} />
 		{:else}
 			<p class="text-muted-foreground text-sm">No posts found.</p>
 		{/each}

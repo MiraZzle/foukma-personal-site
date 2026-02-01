@@ -4,6 +4,7 @@ export interface Post {
 	date: string;
 	summary: string;
 	tags: string[];
+	readingTime: string;
 }
 
 const postModules = import.meta.glob<Post>('./*.json', { eager: true, import: 'default' });
