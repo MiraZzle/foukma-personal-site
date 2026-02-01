@@ -12,4 +12,9 @@
 			When I'm not tinkering with code, you'll usually find me listening to Ghost, playing badminton (and losing), shopping for cars I can't afford, or trying to convince my friends to join me on yet another hackathon adventure.
 		</p>
 	</div>
+
+	<blockquote class="text-muted-foreground mt-10 border-l-2 border-muted-foreground/30 pl-4 italic">
+		<p>"I don't want to live in a world where someone makes the world a better place, better than we do."</p>
+		<footer class="mt-2 text-sm not-italic">- Gavin Belson, CEO of Hooli</footer>
+	</blockquote>
 </section>
