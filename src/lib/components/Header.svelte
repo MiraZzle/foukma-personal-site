@@ -10,7 +10,7 @@
 	const links = [
 		{ href: '/blog', label: 'Blog' },
 		{ href: '/experience', label: 'Experience' },
-		{ href: '/about', label: 'About Me' }
+		{ href: '/about', label: 'About' }
 	];
 </script>
 
