@@ -5,7 +5,24 @@
 <svelte:head><title>foukalma</title></svelte:head>
 
 
-<section class="flex flex-1 flex-col items-center justify-center px-6 py-24 text-center">
+<div
+	class="pointer-events-none absolute inset-x-0 top-0 h-[600px] overflow-hidden"
+	aria-hidden="true"
+>
+	<div
+		class="absolute inset-0"
+		style="
+			background-image:
+				linear-gradient(to right, color-mix(in oklch, var(--muted-foreground) 24%, transparent) 1px, transparent 1px),
+				linear-gradient(to bottom, color-mix(in oklch, var(--muted-foreground) 24%, transparent) 1px, transparent 1px);
+			background-size: 40px 40px;
+			mask-image: radial-gradient(ellipse 60% 60% at 50% 0%, black 0%, transparent 70%);
+			-webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 0%, black 0%, transparent 70%);
+		"
+	></div>
+</div>
+
+<section class="relative flex flex-1 flex-col items-center justify-center px-6 py-24 text-center">
 	<h1 class="text-foreground max-w-2xl text-4xl font-bold tracking-tight sm:text-5xl">
 		Welcome to the Contents of  <span class="font-[Playfair_Display] italic"> Matěj's </span> Mind
 	</h1>
