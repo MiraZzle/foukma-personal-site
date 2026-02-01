@@ -2,6 +2,9 @@
 	import { Button } from '$lib/components/ui/button';
 </script>
 
+<svelte:head><title>foukalma</title></svelte:head>
+
+
 <section class="flex flex-1 flex-col items-center justify-center px-6 py-24 text-center">
 	<h1 class="text-foreground max-w-2xl text-4xl font-bold tracking-tight sm:text-5xl">
 		Welcome to the Contents of  <span class="font-[Playfair_Display] italic"> Matěj's </span> Mind

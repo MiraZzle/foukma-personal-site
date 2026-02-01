@@ -9,7 +9,7 @@
 
 	const links = [
 		{ href: '/blog', label: 'Blog' },
-		{ href: '/tech', label: 'Cool Tech' },
+		{ href: '/experience', label: 'Experience' },
 		{ href: '/about', label: 'About Me' }
 	];
 </script>

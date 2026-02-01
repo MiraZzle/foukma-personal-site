@@ -1,3 +1,5 @@
+<svelte:head><title>foukalma | blog</title></svelte:head>
+
 <script lang="ts">
 	import { searchPosts, allTags } from '$lib/posts';
 	import { blogSearch } from '$lib/stores/blog-search.svelte';
