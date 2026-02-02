@@ -1,4 +1,4 @@
-<svelte:head><title>foukalma | work</title></svelte:head>
+<svelte:head><title>foukalma. | work</title></svelte:head>
 
 <script lang="ts">
 	import { Separator } from '$lib/components/ui/separator';
@@ -43,7 +43,7 @@
 		<div class="relative">
 			<div class="bg-muted-foreground absolute -left-[31px] top-1.5 h-3 w-3 rounded-full"></div>
 			<p class="text-muted-foreground text-xs uppercase tracking-wide">09/2022 - 09/2025</p>
-			<h3 class="text-foreground mt-1 text-base font-medium">BSc Computer Science — Web and Data Oriented Programming</h3>
+			<h3 class="text-foreground mt-1 text-base font-medium">BSc Computer Science - Web and Data Oriented Programming</h3>
 			<p class="text-muted-foreground mt-1 text-sm">Charles University (Matfyz), Prague</p>
 			<p class="text-muted-foreground mt-2 text-sm leading-relaxed">
 				During my bachelor’s studies, I built a strong foundation in computer science with a focus on data engineering, distributed systems, semantic web, and linked data. My bachelor’s thesis, Interactive web-based voting application, was nominated for the Dean’s Award.	

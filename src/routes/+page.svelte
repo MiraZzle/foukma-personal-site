@@ -2,7 +2,7 @@
 	import { Button } from '$lib/components/ui/button';
 </script>
 
-<svelte:head><title>foukalma</title></svelte:head>
+<svelte:head><title>foukalma.</title></svelte:head>
 
 
 <div

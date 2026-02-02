@@ -1,4 +1,4 @@
-<svelte:head><title>foukalma | about</title></svelte:head>
+<svelte:head><title>foukalma. | about</title></svelte:head>
 
 <section class="mx-auto w-full max-w-3xl px-6 py-16">
 	<h1 class="text-foreground text-3xl font-bold tracking-tight">About</h1>
