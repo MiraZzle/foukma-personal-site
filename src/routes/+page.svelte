@@ -33,7 +33,7 @@
 		<Button href="/blog">
 			Read the Blog
 		</Button>
-		<Button href="mailto:hello@foukma.dev" variant="ghost">
+		<Button href="mailto:matej@get-nomox.com" variant="ghost">
 			Contact Me
 		</Button>
 	</div>
