@@ -30,11 +30,11 @@
 
 	<BlogP>Life is a graph.</BlogP>
 
-	<BlogP>Most people stay in a very small part of it - the nodesthey already know. But the only way to explore the graph is to start traversing it.</BlogP>
+	<BlogP>Most people stay in a very small part of it - the nodes they already know. But the only way to explore the graph is to start traversing it.</BlogP>
 
 	<BlogP>Saying "yes" is like running BFS (Breadth-First Search). You explore widely. You expose yourself to new nodes, new directions and new possibilities.</BlogP>
 
-	<BlogP>Then, when you find something interesting - something that clicks - you switch to DFS (Depth-First Search). You go deeper. You commit. You build something meaningful.</BlogP>
+	<BlogP>Then, when you find something interesting - something that clicks - you switch to DFS (Depth-First Search). You go deeper and you build something meaningful.</BlogP>
 
 	<BlogP>But none of that happens if you never take the first step.</BlogP>
 
@@ -81,7 +81,7 @@
 
 	<BlogP>But that's exactly my point.</BlogP>
 
-	<BlogP>Growth doesn't come from optimizing the known. It comes from exploring the unknown and using our past experiences as a foundation.</BlogP>
+	<BlogP>Learning and growth doesn't come from optimizing the known. It comes from exploring the unknown and using our past experiences as a foundation.</BlogP>
 
 
 	<img
