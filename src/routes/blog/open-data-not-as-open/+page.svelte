@@ -12,5 +12,5 @@
 
 	<BlogH2>What "open" is supposed to mean</BlogH2>
 
-	<BlogP>Open means that the data is freely available for anyone to access, use, and share, without restrictions or barriers. That statement only applies to a certain extent when talking about data catalogs. The data is usually accessible but not easily findable nor usable when it comes to actual use cases. For the rest of this series we are going to restrict ourselves to Czech government data catalog - Nkod.</BlogP>
+	<BlogP>Open means that the data is freely available for anyone to access, use, and share, without restrictions or barriers. That statement only applies to a certain extent when talking about data catalogs. The data is usually accessible but not easily findable nor usable when it comes to actual use cases. For the rest of this series we are going to restrict ourselves to Czech government data catalog.</BlogP>
 </BlogPost>
