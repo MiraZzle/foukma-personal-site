@@ -1,53 +1,67 @@
-<svelte:head><title>foukalma. | work</title></svelte:head>
-
 <script lang="ts">
 	import { Separator } from '$lib/components/ui/separator';
+	import Seo from '$lib/components/Seo.svelte';
+	import CompanyLogo from '$lib/components/CompanyLogo.svelte';
+	import { reveal } from '$lib/actions/reveal';
+	import { work, education, type Entry } from '$lib/experience';
 </script>
 
+<Seo
+	title="foukalma. | work"
+	description="Work and education: leading a development team at Second Foundation, co-founder of Nomox, previously Oracle Cloud Infrastructure. Charles University (Matfyz)."
+	type="profile"
+/>
+
+{#snippet timeline(entries: Entry[])}
+	<ol class="mt-6 flex flex-col gap-10">
+		{#each entries as entry, i}
+			<li
+				use:reveal
+				style="--reveal-delay: {Math.min(i, 4) * 70}ms"
+				class="reveal before:bg-border relative pl-14 before:absolute before:top-12 before:-bottom-8 before:left-5 before:w-px last:before:hidden"
+			>
+				<CompanyLogo name={entry.company} src={entry.logo} fit={entry.logoFit} class="absolute top-0 left-0" />
+				<p class="text-muted-foreground text-xs tracking-wide uppercase">{entry.period}</p>
+				<h3 class="text-foreground mt-1 text-base font-medium">{entry.role}</h3>
+				<p class="text-foreground/80 mt-0.5 text-sm">
+					{#if entry.url}
+						<a
+							href={entry.url}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="hover:text-foreground underline-offset-4 hover:underline"
+						>
+							{entry.org}
+						</a>
+					{:else}
+						{entry.org}
+					{/if}
+				</p>
+				{#if entry.highlights?.length}
+					<ul class="mt-2.5 flex flex-wrap gap-1.5">
+						{#each entry.highlights as highlight}
+							<li class="bg-secondary text-secondary-foreground rounded-full px-2 py-0.5 text-xs">{highlight}</li>
+						{/each}
+					</ul>
+				{/if}
+				<p class="text-muted-foreground mt-3 text-sm leading-relaxed">{entry.description}</p>
+			</li>
+		{/each}
+	</ol>
+{/snippet}
+
 <section class="mx-auto w-full max-w-3xl px-6 py-16">
-	<h1 class="text-foreground text-3xl font-bold tracking-tight">Experience</h1>
+	<h1 class="reveal text-foreground text-3xl font-bold tracking-tight">Experience</h1>
+	<p class="reveal text-muted-foreground mt-4 max-w-2xl text-base leading-relaxed" style="--reveal-delay: 60ms">
+		I manage a development team at Second Foundation. Before that I led five engineers at Nomox, a startup
+		that grew out of a hackathon, and built cloud services at Oracle.
+	</p>
 
 	<h2 class="text-foreground mt-10 text-xl font-semibold">Work</h2>
-	<div class="border-muted-foreground/20 mt-6 border-l-2 pl-6">
-		<div class="relative pb-8">
-			<div class="bg-foreground absolute -left-[31px] top-1.5 h-3 w-3 rounded-full"></div>
-			<p class="text-muted-foreground text-xs uppercase tracking-wide">07/2025 - Present</p>
-			<h3 class="text-foreground mt-1 text-base font-medium">Software Engineer - OCI, Oracle</h3>
-			<p class="text-muted-foreground mt-2 text-sm leading-relaxed">
-				I work on backend services within Oracle Cloud Infrastructure, contributing to the delivery of OCI Batch from Limited Availability to General Availability. My role involves extending core Java APIs, working with Micronaut-based services, and collaborating closely with the Micronaut team on framework-level topics. Alongside application development, I’ve gained hands-on experience with cloud infrastructure and infrastructure-as-code using Terraform, all within an Agile Scrum environment.
-			</p>
-		</div>
-		<div class="relative">
-			<div class="bg-muted-foreground absolute -left-[31px] top-1.5 h-3 w-3 rounded-full"></div>
-			<p class="text-muted-foreground text-xs uppercase tracking-wide">06/2024 — 09/2024</p>
-			<h3 class="text-foreground mt-1 text-base font-medium">Web Developer - Greenpanda</h3>
-			<p class="text-muted-foreground mt-2 text-sm leading-relaxed">
-				I worked on building responsive, production-ready web apps using SvelteKit, translating designs directly from Figma into optimized frontends.
-			</p>
-		</div>
-	</div>
+	{@render timeline(work)}
 
 	<Separator class="my-10" />
 
 	<h2 class="text-foreground text-xl font-semibold">Education</h2>
-	<div class="border-muted-foreground/20 mt-6 border-l-2 pl-6">
-		<div class="relative pb-8">
-			<div class="bg-foreground absolute -left-[31px] top-1.5 h-3 w-3 rounded-full"></div>
-			<p class="text-muted-foreground text-xs uppercase tracking-wide">09/2025 - Present</p>
-			<h3 class="text-foreground mt-1 text-base font-medium">MSc Data and Software Engineering</h3>
-			<p class="text-muted-foreground mt-1 text-sm">Charles University (Matfyz), Prague</p>
-			<p class="text-muted-foreground mt-2 text-sm leading-relaxed">
-				I am currently pursuing a master’s degree focused on data-centric software systems, with an emphasis on information retrieval, large-scale data processing, and applied machine learning
-			</p>
-		</div>
-		<div class="relative">
-			<div class="bg-muted-foreground absolute -left-[31px] top-1.5 h-3 w-3 rounded-full"></div>
-			<p class="text-muted-foreground text-xs uppercase tracking-wide">09/2022 - 09/2025</p>
-			<h3 class="text-foreground mt-1 text-base font-medium">BSc Computer Science - Web and Data Oriented Programming</h3>
-			<p class="text-muted-foreground mt-1 text-sm">Charles University (Matfyz), Prague</p>
-			<p class="text-muted-foreground mt-2 text-sm leading-relaxed">
-				During my bachelor’s studies, I built a strong foundation in computer science with a focus on data engineering, distributed systems, semantic web, and linked data. My bachelor’s thesis, Interactive web-based voting application, was nominated for the Dean’s Award.	
-			</p>
-		</div>
-	</div>
+	{@render timeline(education)}
 </section>

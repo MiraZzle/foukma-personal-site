@@ -122,3 +122,48 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Entrance animation. Plays on load from CSS alone; the `reveal` action (src/lib/actions/reveal.ts)
+   holds it back for elements that start below the fold. */
+@keyframes fk-rise {
+  from {
+    opacity: 0;
+    translate: 0 14px;
+  }
+}
+
+/* Moves the hero grid by exactly one 40px cell, so the loop is seamless. */
+@keyframes fk-grid-drift {
+  to {
+    translate: 40px 40px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    animation: fk-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+    animation-delay: var(--reveal-delay, 0ms);
+  }
+  .reveal.reveal-wait {
+    animation: none;
+    opacity: 0;
+  }
+  .grid-drift {
+    animation: fk-grid-drift 16s linear infinite;
+  }
+}
+
+/* Page transitions (started in +layout.svelte). The header stays put while the page cross-fades. */
+::view-transition-old(root) {
+  animation-duration: 140ms;
+}
+::view-transition-new(root) {
+  animation-duration: 260ms;
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

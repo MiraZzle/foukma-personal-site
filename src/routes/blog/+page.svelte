@@ -1,9 +1,10 @@
-<svelte:head><title>foukalma. | blog</title></svelte:head>
-
 <script lang="ts">
-	import { searchPosts, allTags } from '$lib/posts';
+	import { posts, searchPosts, allTags } from '$lib/posts';
 	import { blogSearch } from '$lib/stores/blog-search.svelte';
 	import BlogPostPreview from '$lib/components/BlogPostPreview.svelte';
+	import Seo from '$lib/components/Seo.svelte';
+	import JsonLd from '$lib/components/JsonLd.svelte';
+	import { SITE, absoluteUrl } from '$lib/site';
 
 	let selectedTags = $state<string[]>([]);
 
@@ -17,6 +18,31 @@
 		}
 	}
 </script>
+
+<Seo
+	title="foukalma. | blog"
+	description="All posts by Matěj Foukal: data engineering, open data, software, and thoughts on building a career in tech."
+/>
+
+<JsonLd
+	data={{
+		'@context': 'https://schema.org',
+		'@type': 'Blog',
+		'@id': `${absoluteUrl('/blog')}#blog`,
+		name: `${SITE.name} blog`,
+		url: absoluteUrl('/blog'),
+		author: { '@id': `${SITE.url}/#person` },
+		blogPost: posts
+			.filter((post) => !post.draft)
+			.map((post) => ({
+				'@type': 'BlogPosting',
+				headline: post.title,
+				description: post.summary,
+				datePublished: post.date,
+				url: absoluteUrl(`/blog/${post.slug}`)
+			}))
+	}}
+/>
 
 <section class="mx-auto w-full max-w-3xl px-6 py-16">
 	<h1 class="text-foreground text-3xl font-bold tracking-tight">Posts</h1>

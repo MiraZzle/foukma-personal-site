@@ -5,7 +5,7 @@
 	import meta from '$lib/posts/becoming-a-yes-man.json';
 </script>
 
-<BlogPost title={meta.title} date={meta.date} tags={meta.tags} readingTime={meta.readingTime}>
+<BlogPost {...meta}>
 	<img
 		src="https://news.simplybook.me/wp-content/uploads/2017/12/jim_carrey_in_yes_man-HD.jpg"
 		alt="Jim Carrey in Yes Man"
