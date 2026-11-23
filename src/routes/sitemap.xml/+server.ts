@@ -1,13 +1,19 @@
 import { posts } from '$lib/posts';
-
-const SITE = 'https://www.foukalma.cz';
+import { SITE } from '$lib/site';
 
 const staticRoutes = ['/', '/blog', '/about', '/experience'];
 
 export async function GET() {
-	const urls = [
-		...staticRoutes.map((path) => ({ loc: `${SITE}${path}` })),
-		...posts.map((post) => ({ loc: `${SITE}/blog/${post.slug}`, lastmod: post.date }))
+	const published = posts.filter((post) => !post.draft);
+	// The home page and the blog index change whenever a post is published.
+	const latestPostDate = published[0]?.date;
+
+	const urls: { loc: string; lastmod?: string }[] = [
+		...staticRoutes.map((path) => ({
+			loc: `${SITE.url}${path}`,
+			lastmod: path === '/' || path === '/blog' ? latestPostDate : undefined
+		})),
+		...published.map((post) => ({ loc: `${SITE.url}/blog/${post.slug}`, lastmod: post.date }))
 	];
 
 	const xml = `<?xml version="1.0" encoding="UTF-8"?>

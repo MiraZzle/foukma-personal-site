@@ -1,40 +1,53 @@
 <script lang="ts">
+	import { ArrowRight } from '@lucide/svelte';
 	import { Button } from '$lib/components/ui/button';
+	import Seo from '$lib/components/Seo.svelte';
+	import DuckField from '$lib/components/DuckField.svelte';
 </script>
 
-<svelte:head><title>foukalma.</title></svelte:head>
+<Seo title="foukalma. | Matěj Foukal on leading teams, data and software" />
 
-
-<div
-	class="pointer-events-none absolute inset-x-0 top-0 h-[600px] overflow-hidden"
-	aria-hidden="true"
->
-	<div
-		class="absolute inset-0"
-		style="
-			background-image:
-				linear-gradient(to right, color-mix(in oklch, var(--muted-foreground) 24%, transparent) 1px, transparent 1px),
-				linear-gradient(to bottom, color-mix(in oklch, var(--muted-foreground) 24%, transparent) 1px, transparent 1px);
-			background-size: 40px 40px;
-			mask-image: radial-gradient(ellipse 60% 60% at 50% 0%, black 0%, transparent 70%);
-			-webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 0%, black 0%, transparent 70%);
-		"
-	></div>
+<div class="pointer-events-none absolute inset-x-0 top-0 h-[600px] overflow-hidden" aria-hidden="true">
+	<div class="grid-fade absolute inset-0">
+		<div class="grid-lines grid-drift absolute -inset-10"></div>
+	</div>
 </div>
 
-<section class="relative flex flex-1 flex-col items-center justify-center px-6 py-24 text-center">
-	<h1 class="text-foreground max-w-2xl text-4xl font-bold tracking-tight sm:text-5xl">
+<!-- The hero fills the page between header and footer; the ducks float behind its text. -->
+<section class="relative isolate flex flex-1 flex-col items-center justify-center px-6 py-24 text-center">
+	<div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+		<DuckField top={0} />
+	</div>
+
+	<h1 class="reveal text-foreground max-w-2xl text-4xl font-bold tracking-tight sm:text-5xl">
 		Welcome to the Contents of  <span class="font-[Playfair_Display] italic"> Matěj's </span> Mind
 	</h1>
-	<p class="text-foreground mt-6 max-w-lg text-lg leading-relaxed">
-		Developer, thinker, and chaotic writer. I work with data, overthink career choices, and write it all down.
+	<p class="reveal text-foreground mt-6 max-w-lg text-lg leading-relaxed" style="--reveal-delay: 80ms">
+		Team lead, data engineer, and chaotic writer. I manage developers, build data systems, teach AI agents what data means, and write it all down.
 	</p>
-	<div class="mt-10 flex flex-wrap items-center justify-center gap-4">
-		<Button href="/blog">
+	<div class="reveal mt-10 flex flex-wrap items-center justify-center gap-4" style="--reveal-delay: 160ms">
+		<Button href="/blog" class="group">
 			Read the Blog
+			<ArrowRight class="transition-transform duration-200 group-hover:translate-x-0.5" />
 		</Button>
 		<Button href="mailto:matej@get-nomox.com" variant="ghost">
 			Contact Me
 		</Button>
 	</div>
 </section>
+
+<style>
+	/* Fades the grid out towards the sides and the bottom. */
+	.grid-fade {
+		mask-image: radial-gradient(ellipse 70% 66% at 50% 0%, black 12%, transparent 74%);
+		-webkit-mask-image: radial-gradient(ellipse 70% 66% at 50% 0%, black 12%, transparent 74%);
+	}
+
+	.grid-lines {
+		--line: color-mix(in oklch, var(--muted-foreground) 36%, transparent);
+		background-image:
+			linear-gradient(to right, var(--line) 1px, transparent 1px),
+			linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+		background-size: 40px 40px;
+	}
+</style>
